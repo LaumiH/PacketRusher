@@ -19,7 +19,7 @@ import (
 func TestMultiUesInQueue(numUes int, tunnelMode config.TunnelMode, dedicatedGnb bool, loop bool, timeBetweenRegistration int, timeBeforeDeregistration int, timeBeforeNgapHandover int, timeBeforeXnHandover int, timeBeforeIdle int, numPduSessions int) {
 	if tunnelMode != config.TunnelDisabled {
 		if !dedicatedGnb {
-			log.Fatal("You cannot use the --tunnel option, without using the --dedicatedGnb option")
+			log.Warn("You cannot use the --tunnel option, without using the --dedicatedGnb option")
 		}
 		if timeBetweenRegistration < 500 {
 			log.Fatal("When using the --tunnel option, --timeBetweenRegistration must be equal to at least 500 ms, or else gtp5g kernel module may crash if you create tunnels too rapidly.")
